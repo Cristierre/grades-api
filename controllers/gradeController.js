@@ -1,13 +1,12 @@
 import { db } from "../models/index.js";
 import { logger } from "../config/logger.js";
-import { gradeModel } from "../models/gradeModel";
 
 const gradeModel = db.grade;
 
 const create = async (req, res) => {
   const { name, subject, type, value } = req.body;
 
-  const grade = new gradeModel({
+  const grade = gradeModel({
     name: name,
     subject: subject,
     type: type,
@@ -26,8 +25,8 @@ const create = async (req, res) => {
 };
 
 const findAll = async (req, res) => {
-  const name = req.body.name;
-
+  const name = req.query.name;
+  
   //condicao para o filtro no findAll
   var condition = name
     ? { name: { $regex: new RegExp(name), $options: "i" } }
