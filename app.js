@@ -23,7 +23,7 @@ gradeRouter.use(bodyParser.json());
 gradeRouter.use(bodyParser.urlencoded({ extended: true }));
 gradeRouter.use(
   cors({
-    origin: 'https://fronte-grades.herokuapp.com',
+    origin: '*',
   })
 );
 gradeRouter.get('/', (req, res) => {
