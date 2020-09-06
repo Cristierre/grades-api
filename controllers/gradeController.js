@@ -26,7 +26,7 @@ const create = async (req, res) => {
 };
 
 const findAll = async (req, res) => {
-  const name = req.query.name;
+  const name = req.body.name;
 
   //condicao para o filtro no findAll
   var condition = name
