@@ -9,12 +9,6 @@ export default (mongoose) =>{
         value: {type: Number , required: true},
         lastModified: {type: Date, required:true}
     })
-
-    alunoInfoSchema.method('toJSON', () => {
-        const {__v, _id, ...object} = this.toObject();
-        object.id = _id;
-        return object;
-    })
     
     const gradeModel = mongoose.model('grades',alunoInfoSchema);
     return gradeModel;

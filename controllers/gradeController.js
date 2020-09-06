@@ -26,7 +26,7 @@ const create = async (req, res) => {
 
 const findAll = async (req, res) => {
   const name = req.query.name;
-  
+  console.log("Entrou controler");
   //condicao para o filtro no findAll
   var condition = name
     ? { name: { $regex: new RegExp(name), $options: "i" } }
